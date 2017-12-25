@@ -47,7 +47,9 @@ function validate(values) {
 
   errors.recipients = validateEmails(values.recipients || "");
 
-  const recip = values.recipients.split(",").map(email => email.trim()).length;
+  const recip = values.recipients
+    ? values.recipients.split(",").map(email => email.trim()).length
+    : 0;
   if (recip > 20) {
     errors.recipients = "You can only send to 20 recipients at a time";
   }

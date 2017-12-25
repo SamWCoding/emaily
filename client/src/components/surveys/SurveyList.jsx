@@ -8,6 +8,17 @@ class SurveyList extends Component {
   }
 
   renderSurveys() {
+    if (this.props.surveys.length === 0) {
+      return (
+        <div className="center-align">
+          <h2>You have no surveys!</h2>
+          <p>
+            To create a new survey, click the plus in the bottom right of this
+            page.
+          </p>
+        </div>
+      );
+    }
     return this.props.surveys.reverse().map(survey => {
       return (
         <div class="card">
